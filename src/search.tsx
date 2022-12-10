@@ -25,7 +25,7 @@ const Search = ({
         
         <h1 className='text-4xl font-thin'>Weather <span className='font-black'>forecast</span> </h1>
         <p className='text-sm mt-2'>
-          Enter below a palce you want to know the weather of and select an option from the dropdawn
+          Enter below a place you want to know the weather of and select an option from the dropdawn
         </p>
         <div className="flex relative mt-10 md:mt-4">
         <input 

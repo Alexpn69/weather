@@ -25,7 +25,7 @@ const icons = {
   const Icon = icons[icon]
 
   return (
-    <article className="w-[140px] h-[130px] text-zinc-700 bg-white/20 backdrop-blur-ls rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-between">
+    <article className="w-[120px] h-[110px] text-zinc-700 bg-white/20 backdrop-blur-ls rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-between">
       <div className="flex items-center text-sm font-bold">
         <Icon /> <h4 className="ml-1">{title}</h4>
       </div>

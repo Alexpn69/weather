@@ -6,11 +6,25 @@ const useForecast = () => {
     const [city, setCity] = useState<optionType | null>(null)
     const [forecast, setForecast] = useState<forecastType | null>(null)
   
-    const getSearchOptions = (value: string) => {
-      fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=10&appid=455a49bca864eddd8b48a0441a59bc36`)
-      .then(res => res.json())
-      .then(data => setOptions(data))
+  //   const getSearchOptions = (value: string) => {
+  //     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=10&appid=455a49bca864eddd8b48a0441a59bc36`)
+  //     .then(res => res.json())
+  //     .then(data => setOptions(data))
+  // }
+
+  async function getSearchOptions(value: stringe) {
+    try {
+      const response = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=10&appid=${import.meta.env.VITE_API_KEY}`);
+      const data = await response.json();
+      if (data) {
+        setOptions(data);
+      }
+    } catch (error) {
+      console.error(error);
+    } 
   }
+
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim()
     setTerm(value)
@@ -56,7 +70,6 @@ const useForecast = () => {
   
   const onOptionSelect = (option: optionType) =>{
     setCity(option)
-  
   }
   
   useEffect(() =>{
@@ -67,7 +80,7 @@ const useForecast = () => {
   }, [city])
   
     return{
-        term, options, forecast, city, onInputChange, onOptionSelect, onSubmit
+        term, options, forecast, city, onInputChange, onOptionSelect, onSubmit, setForecast
     }
 }
  
