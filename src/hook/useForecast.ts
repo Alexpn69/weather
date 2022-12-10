@@ -17,19 +17,38 @@ const useForecast = () => {
     if(value != '') getSearchOptions(value)
   }
   
-  const getForecast = (city: optionType) =>{
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=455a49bca864eddd8b48a0441a59bc36`)
-    .then(resp => resp.json())
-    .then(data => {
+//   const getForecast = (city: optionType) =>{
+//     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=455a49bca864eddd8b48a0441a59bc36`)
+//     .then(resp => resp.json())
+//     .then(data => {
       
-const forecastData ={
-  ...data.city,
-  list: data.list.slice(0, 16),
-}
+// const forecastData ={
+//   ...data.city,
+//   list: data.list.slice(0, 16),
+// }
 
-      setForecast(forecastData)})  
-  }
+//       setForecast(forecastData)})  
+//   }
   
+  async function getForecast(city: optionType) {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=455a49bca864eddd8b48a0441a59bc36`
+      );
+      const data = await response.json();
+      const forecastData ={
+        ...data.city,
+        list: data.list.slice(0, 16),
+      }
+      if (forecastData) {
+        setForecast(forecastData);
+      }
+    } catch (error) {
+      console.error(error);
+    } 
+  }
+
+
   const onSubmit = () =>{
   if(!city) return
   getForecast(city)
