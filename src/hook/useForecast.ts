@@ -14,8 +14,7 @@ const useForecast = () => {
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim()
     setTerm(value)
-    // if(value === '') return;
-    getSearchOptions(value)
+    if(value != '') getSearchOptions(value)
   }
   
   const getForecast = (city: optionType) =>{
