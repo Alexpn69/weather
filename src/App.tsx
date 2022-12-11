@@ -7,17 +7,20 @@ const App =(): JSX.Element => {
   const {term, options, forecast, setForecast, city, onInputChange, onOptionSelect, onSubmit} = useForecast()
   return (
 <>
-<main className='flex justify-center items-center bg-blue-400 h-[100vh] w-full flex-grow'>
+{/* <main className={forecast ? 'flex flex-col justify-center bg-blue-400 w-full'
+: 'flex flex-col justify-center items-center bg-blue-400 h-full w-full'}
+> */}
+<main className='flex flex-col items-center justify-center bg-blue-400'>
 
-{forecast 
-? <Forecast data={forecast} />
-: (<Search   
+
+<Search   
     term={term} 
     options={options} 
     onInputChange={onInputChange} 
     onOptionSelect={onOptionSelect} 
-    onSubmit={onSubmit} />)}
-
+    onSubmit={onSubmit} 
+    forecast={forecast}/>
+{forecast && <Forecast data={forecast} />}
 
 </main>
 </>

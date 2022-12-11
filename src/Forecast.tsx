@@ -16,8 +16,8 @@ const today = data.list[0]
 
     return ( <>
    
-    <div className='w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-white
-    bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg'>
+    <div className='w-full md:max-w-[400px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-white
+    bg-opacity-20 backdrop-blur-lg drop-shadow-lg flex justify-center'>
         <div className='mx-auto w-[300px]'>
 <section className='text-center'>
 <h2 className='text-2xl font-black'>
@@ -58,7 +58,7 @@ alt={`weather-icon-${item.weather[0].desc}`} />
     <Sunrise /> <span className='mt-2'>{getSunTime(data.sunrise)}</span>
     </div>
     <div className='w-[120px] text-sx font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5'>
-    <Sunrise /> <span className='mt-2'>{getSunTime(data.sunset)}</span>
+    <Sunset /> <span className='mt-2'>{getSunTime(data.sunset)}</span>
     </div>
 
     <Block

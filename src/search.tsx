@@ -11,23 +11,26 @@ type Props = {
 
 const Search = ({
     term, 
-    options, 
+    options,
+    forecast, 
     onInputChange, 
     onOptionSelect, 
     onSubmit }: Props): JSX.Element => {
     return (
         <>
-        <main className='flex justify-center items-center bg-blue-400 h-[100vh] w-full'>
+        <main className={forecast ? 'flex justify-center items-center bg-blue-400 w-full z-10'
+: 'flex justify-center items-center bg-blue-400 w-full h-[100vh]'}>
         
-        <section className='bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg rounded
-        w-full md:max-w-[500px] p-4 flex flex-col text-center items-center justify-center
-        md:px-10 lg:p-24 h-full lg:h-[500px] text-zinc-700'>
+        <section className=
+      {forecast 
+      ?  'bg-white bg-opacity-40 backdrop-blur-lg drop-shadow-lg w-full md:max-w-[400px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-24 h-full lg:h-[400px] text-zinc-700'
+    :  'bg-white bg-opacity-40 backdrop-blur-lg drop-shadow-lg w-full md:max-w-[400px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-24 h-full lg:h-[400px] text-zinc-700 rounded-md'}>
         
         <h1 className='text-4xl font-thin'>Weather <span className='font-black'>forecast</span> </h1>
         <p className='text-sm mt-2'>
           Enter below a place you want to know the weather of and select an option from the dropdawn
         </p>
-        <div className="flex relative mt-10 md:mt-4">
+        <div className="flex relative mt-10 md:mt-4 z-10">
         <input 
         type="text" 
         value={term}
