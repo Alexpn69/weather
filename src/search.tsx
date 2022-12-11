@@ -4,6 +4,7 @@ import {optionType} from './types'
 type Props = {
     term: string,
     options: [],
+    forecast: any,
     onInputChange: (e: ChangeEvent<HTMLInputElement>) => void,
     onOptionSelect: (option: optionType)=> void,
     onSubmit: () => void
