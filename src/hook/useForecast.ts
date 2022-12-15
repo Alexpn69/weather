@@ -30,7 +30,7 @@ const useForecast = () => {
   async function getForecast(city: optionType) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=455a49bca864eddd8b48a0441a59bc36`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${import.meta.env.VITE_API_KEY}`
       );
       const data = await response.json();
       const forecastData ={
